@@ -12,7 +12,7 @@ const Hello = ({ name, age }) => {
 }
 
 const App = () => {
-  const name = 'Peter'
+  const name = 'Petr'
   const age = 10
 
   return (
