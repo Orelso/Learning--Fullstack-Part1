@@ -8,7 +8,7 @@ const Button = (props) => (
 )
 
 const App = () => {
-  let anecdotes = [
+  const anecdotes = [
     'If it hurts, do it more often.',
     'Adding manpower to a late software project makes it later!',
     'The first 90 percent of the code accounts for the first 10 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
@@ -17,37 +17,22 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.'
   ]
+
   const [selected, setSelected] = useState(0)
-  const [points, setPoints] = useState([0, 0, 0, 0, 0, 0, 0])
+
 
 
   const anecdoteClick = () => {
     setSelected(Math.floor(Math.random() * 7))
   }
 
-  const voteClick = (selected) => {
-
-    const newVal = points[selected] + 1
-    let newPoints = [...points]
-    newPoints.splice(selected, 1, newVal)
-    setPoints(newPoints)
-  }
-
-  // let mostPoints = () => {
-  //   const mostPointsIndex = Math.max(...points)
-  // }
-
 
 
   return (
     <div>
-      <h1>Anecdote of the day</h1>
-      <p> {anecdotes[selected]} {' Has ' + points[selected]  + ' votes '}</p>
-      <Button handleClick={() => anecdoteClick()} text="Next Anecdote" />
-      <Button handleClick={() => voteClick(selected)} text="Vote" />     
-      <h1>Anecdote with the most points</h1>
-      <p> {Math.max(...points)}  { points[selected]  + ' votes '}</p>
-
+      <h1>Give Feedback</h1>
+      <Button handleClick={() => anecdoteClick()} text="Anecdote Generator" />
+      <p> {anecdotes[selected]}</p>
     </div>
   )
 }
